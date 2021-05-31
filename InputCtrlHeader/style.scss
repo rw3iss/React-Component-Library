@@ -1,0 +1,13 @@
+@import '../../../../../../../style/variables';
+
+.input-control-header {
+    .optional {
+        font-size: .75em;
+        color: $color-grey-7;
+    }
+
+    .not-set {
+        font-size: .75em;
+        color: $color-blue-main;
+    }
+}

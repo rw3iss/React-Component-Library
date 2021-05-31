@@ -1,0 +1,21 @@
+@import '../../../../../../../style/mixins/layout';
+
+.json-input-field.file-input {
+    label.upload-button.s3-folder-select {
+        .file-previews {
+            .file {
+                @include flex-col();
+                @include flex-middle();
+    
+                .file-name {
+                    display: block;
+                    word-break: break-all;
+                    height: auto;
+                }
+    
+                .thumbnail {
+                }
+            }
+        }
+    }
+}

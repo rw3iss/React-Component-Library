@@ -1,0 +1,88 @@
+$labelBackground: #333;
+$itemsBackground: #222;
+
+.multi-select {
+    position: relative;
+    width: 300px;
+    
+    .select {
+        display: block;
+        padding: 5px;
+        background: $labelBackground;
+        min-height: 20px;
+        position: relative;
+        z-index: 2;
+        
+        .label {
+            color: white;
+            height: 100%;
+        }
+        
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    
+    .items {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        top: 100%;
+        min-width: 100%;
+        background: $itemsBackground;
+        box-shadow: 3px 3px 7px rgba(0,0,0,.5);
+        padding: 0;
+        
+        &.open {
+            display: block;
+        }
+        
+        .item {
+            position: relative;
+            display: flex;
+            flex-wrap: nowrap;
+            cursor: pointer;
+            width: 100%;
+            
+            &:hover {
+                background: lighten($itemsBackground, 5%);
+            }
+            
+            &.selected {
+                background: #346;
+            }
+            
+            input {
+                position: absolute;
+                top: 3px;
+                left: 2px;
+                size: 2em;
+                width: 15px;
+                height: 15px;
+            }
+            
+            .item-label {
+                left: 0;
+                cursor: pointer;
+                flex: 1;
+                margin-left: 4px;
+                padding: 5px 5px 5px 25px;
+                width: 100%;
+            }
+        }
+        
+        .actions {
+            display: flex;
+            justify-content: flex-end;;
+            flex-wrap: nowrap;
+            padding: 4px;
+            
+            .action {
+                font-size: .7em;
+                padding: 2px;
+                margin: 0 5px;
+            }
+        }
+    }
+    
+}

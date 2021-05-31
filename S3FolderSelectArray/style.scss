@@ -1,0 +1,51 @@
+@import '../../../../../../../style/variables';
+@import '../../../../../../../style/mixins/layout';
+
+.s3-folder-select-array {
+    @include flex-col();
+    width: 50%;
+
+    .json-input-field.file-input {
+        width: 100%;
+
+        label.upload-button.s3-folder-select {
+            .file-previews {
+                .file {
+                    @include flex-col();
+                    @include flex-middle();
+        
+                    .file-name {
+                        display: block;
+                        word-break: break-all;
+                        height: auto;
+                    }
+        
+                    .thumbnail {
+                    }
+                }
+            }
+        }
+    }
+
+    .warning, 
+    .file-count {
+        flex: 1;
+        width: 100%;
+        @include flex-row();
+
+        label {
+            flex: 1;
+            min-width: 150px;
+            max-width: 200px;
+        }
+
+        span {
+            flex: 2;
+        }
+    }
+
+    .warning {
+        color: $color-warning;
+        font-size: .85em;
+    }
+}

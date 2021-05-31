@@ -1,0 +1,135 @@
+@import "src/styles/include";
+
+$searchMaxWidth: 75vw;
+
+#search {
+	position: relative;
+    height: 100%;
+    width: 100%;
+    @include flex();
+    align-items: center;
+    max-width: $searchMaxWidth;
+
+    .input-wrapper {
+        position: relative;
+        width: 100%;
+        
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 1.2em;
+            border: none;
+            background: none; //rgba(255,255,255,.85);
+            border-radius: 5px;
+            transition: max-width var(--animShort) ease-in-out,
+                background var(--animShort) ease-in-out;
+
+            &::placeholder {
+                font-style: italic;
+                color: $color-light-grey;
+            }
+
+            &:active,
+            &:focus {
+                width: 100%;
+                max-width: 100%;
+                transition: max-width var(--animShort) ease-in-out,
+                    background var(--animShort) ease-in-out;
+                background: none; //rgba(255,255,255,1);
+            }
+        }
+
+        .cancel {
+            display: none;
+            width: 25px;
+            height: 25px;
+            overflow: hidden;
+            min-width: 20px;
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            margin-top: -12.5px;
+            color: #555;
+            font-weight: bold;
+            z-index: 10;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 12.5px;	
+            box-sizing:border-box;
+            transition: none;
+
+            &:hover {
+                cursor: pointer;
+                background: rgba(200,200,200,.2);
+            }
+        }
+
+        &.active {
+            .cancel {
+                display: flex;
+            }
+        }
+    }
+
+    .results-transition-appear {
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .results-transition-appear.results-transition-appear-active {
+        max-height: 100vh;
+        transition: max-height .2s ease-in;
+    }
+
+    .results-transition-leave {
+        max-height: 100vh;
+    }
+
+    .results-transition-leave.results-transition-leave-active {
+        max-height: 0;
+        transition: max-height .2s ease-in;
+    }
+
+    .results {
+        position: absolute;
+        z-index: 99;
+        box-sizing: border-box;
+        width: 100%;
+        top: calc(100%);
+        box-shadow: 0px 2px 5px rgba(100,100,100,.2);
+        margin-right: 15px; //todo: fix this?
+        
+        background: $color-view-bg;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f7f9fa+0,f1f3f5+100 */
+        background: #f7f9fa; /* Old browsers */
+        background: -moz-linear-gradient(top, #f7f9fa 0%, #f1f3f5 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, #f7f9fa 0%, #f1f3f5 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(
+                        to bottom,
+                        #f7f9fa 0%,
+                        #f1f3f5 100%
+        ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7f9fa', endColorstr='#f1f3f5', GradientType=0); /* IE6-9 */
+
+        li {
+            display: block;
+            width: 100%;
+            padding: 6px 8px;
+            cursor: pointer;
+            border-bottom: 1px solid #ddd;
+
+            &:hover {
+                background: white;
+            }
+
+            a {
+                display: block;
+                width: 100%;
+                color: blue;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+        }
+    }
+}
